@@ -104,8 +104,8 @@ website/
 ├── styles.css          # CSS styles
 ├── script.js           # JavaScript functionality
 ├── assets/             # Images and other assets
-│   ├── favicon.png
-│   └── og-image.png    # (to be added)
+│   └── favicon.svg     # Company favicon
+├── .gitignore          # Git ignore file
 ├── README.md           # This file
 └── LICENSE             # MIT License
 ```

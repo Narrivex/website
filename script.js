@@ -13,21 +13,40 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
+// Navbar scroll effect and active navigation
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
 
-window.addEventListener('scroll', () => {
+// Consolidated scroll handler for better performance
+function handleScroll() {
     const currentScroll = window.pageYOffset;
     
+    // Navbar scroll effect
     if (currentScroll > 100) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
     
-    lastScroll = currentScroll;
-});
+    // Update active navigation link
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (currentScroll >= sectionTop - 100) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', handleScroll);
 
 // Intersection Observer for fade-in animations
 const observerOptions = {
@@ -50,39 +69,6 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(section);
-});
-
-// Add active state to navigation links based on scroll position
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Parallax effect for floating shapes
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const shapes = document.querySelectorAll('.shape');
-    
-    shapes.forEach((shape, index) => {
-        const speed = 0.5 + (index * 0.1);
-        const yPos = -(scrolled * speed);
-        shape.style.transform = `translateY(${yPos}px)`;
-    });
 });
 
 // Console message for developers
