@@ -153,8 +153,9 @@ MIT License - see [LICENSE](LICENSE) file for details
 ## Contact
 
 - **Company**: Narrivex LLC
-- **Location**: Cincinnati, Ohio Area
-- **GitHub**: [https://github.com/Narrivex](https://github.com/Narrivex)
+- **Location**: Bowling Green, Kentucky Area
+- **Email**: support@narrivex.com
+- **Phone**: (513) 335-8999
 - **Website**: [https://narrivex.com](https://narrivex.com)
 
 ---
