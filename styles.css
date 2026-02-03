@@ -1058,79 +1058,148 @@ a {
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
 }
 
+/* Contact Form */
+.contact-form-wrapper {
+    background: white;
+    padding: var(--spacing-2xl);
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 2px solid transparent;
+    transition: all var(--transition-base);
+}
+
+.contact-form-wrapper:hover {
+    border-color: rgba(0, 217, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 217, 255, 0.1);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: 0.75rem;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    background: var(--bg-secondary);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    align-self: flex-start;
+}
+
+/* Contact Info */
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-md);
+    gap: var(--spacing-lg);
+}
+
+.contact-info-header {
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-info-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-primary);
+}
+
+.contact-info-header p {
+    color: var(--text-secondary);
+    margin: 0;
 }
 
 .info-item {
     display: flex;
     gap: var(--spacing-md);
-    padding: var(--spacing-md);
+    padding: var(--spacing-lg);
     background: white;
     border-radius: 1rem;
-    box-shadow: var(--shadow-sm);
-    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    align-items: start;
+    transition: all var(--transition-base);
+}
+
+.info-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 217, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .info-icon {
-    font-size: 2rem;
-    width: 60px;
-    height: 60px;
+    font-size: 1.5rem;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-primary);
+    background: var(--gradient-neon);
     border-radius: 0.75rem;
+    flex-shrink: 0;
 }
 
 .info-item h4 {
     margin-bottom: var(--spacing-xs);
-    font-size: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 .info-item p {
-    color: var(--text-secondary);
-    margin-bottom: 0;
-}
-
-.contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
-.contact-links h3 {
-    margin-bottom: var(--spacing-sm);
-}
-
-.contact-link {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    padding: var(--spacing-md);
-    background: white;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-base);
     color: var(--text-primary);
+    margin-bottom: 0;
+    font-size: 1rem;
 }
 
-.contact-link:hover {
-    transform: translateX(5px);
-    box-shadow: var(--shadow-md);
+.info-link {
     color: var(--primary-color);
+    font-weight: 500;
+    transition: color var(--transition-fast);
 }
 
-.contact-link svg {
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
+.info-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 /* ===================================
@@ -1144,30 +1213,73 @@ a {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--spacing-xl);
+    grid-template-columns: 1.5fr 2fr;
+    gap: var(--spacing-2xl);
     margin-bottom: var(--spacing-xl);
 }
 
 .footer-brand h3 {
     color: white;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.75rem;
 }
 
-.footer-brand p {
+.footer-tagline {
     color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1rem;
+}
+
+/* Footer Ecosystem */
+.footer-ecosystem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ecosystem-item {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.ecosystem-item:hover {
+    color: var(--primary-light);
+}
+
+.ecosystem-item.highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.ecosystem-divider {
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
 }
 
 .footer-links {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
 }
 
 .footer-section h4 {
     color: white;
-    font-size: 1rem;
+    font-size: 0.875rem;
     margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
 }
 
 .footer-section ul {
@@ -1181,6 +1293,7 @@ a {
 .footer-section ul li a {
     color: var(--text-light);
     transition: color var(--transition-fast);
+    font-size: 0.9rem;
 }
 
 .footer-section ul li a:hover {
@@ -1193,6 +1306,7 @@ a {
     display: flex;
     justify-content: space-between;
     color: var(--text-light);
+    font-size: 0.875rem;
 }
 
 /* ===================================
@@ -1249,6 +1363,17 @@ a {
     .footer-content {
         grid-template-columns: 1fr;
     }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        text-align: center;
+    }
+}
 }
 
 @media (max-width: 768px) {
